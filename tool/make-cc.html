@@ -7,8 +7,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&display=swap" rel="stylesheet">
 </head>
 
-<textarea rows="1" cols="256" placeholder="請輸入字幕內容" onchange="updateSVGMsg(this)"></textarea>
-<button onclick="generatePNG()">Generate PNG</button>
+<textarea rows="1" cols="256" placeholder="請輸入字幕內容" onchange="updateSVGMsg(this)"></textarea><br>
+<pre></pre>
+<button onclick="generatePNG()">Generate PNG</button><br>
 <svg xmlns="http://www.w3.org/2000/svg">
   <style>
     @font-face {
@@ -49,9 +50,14 @@
 </svg>
 
 <script>
+  // https://stackoverflow.com/q/3437786/9935654
   const svgElem = document.querySelector("svg")
-  svgElem.style.width = `${window.screen.width}`
-  svgElem.style.height = `${window.screen.height}`
+
+  // 幫助您了解視窗尺寸
+  document.querySelector("pre").innerText = JSON.stringify({
+    winWidth: window.screen.width,
+    winHeight: window.screen.height,
+  }, null, 2)
 
   function updateSVGMsg(textareaElem) {
     svgElem.querySelector("div#msg").innerHTML = `${textareaElem.value}`
@@ -65,20 +71,22 @@
     const img = new Image()
     img.src = svgDataURI
     img.onload = () => {
+      const msgElem = svgElem.querySelector("div#msg")
+
       const canvas = document.createElement("canvas")
-      // https://stackoverflow.com/q/3437786/9935654
-      canvas.width = window.screen.width
-      canvas.height = window.screen.height
+      canvas.width =  msgElem.clientWidth
+      canvas.height = msgElem.clientHeight
 
       const ctx = canvas.getContext('2d')
 
-      const msgElem = svgElem.querySelector("div#msg")
-
       // ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx.drawImage(img,0,0)
+      /* ~~字幕放到畫面底下中間~~ 廢棄不用，讓gif自己放到合適的位置，不然這樣生成的圖片會有很多地方留白，占空間
       ctx.drawImage(img,
         0, 0, canvas.width, canvas.height,
         (canvas.width - msgElem.clientWidth) / 2, canvas.height * 0.90, canvas.width, canvas.height,
       )
+       */
 
       const quality = 1.0
       const imgUrl = canvas.toDataURL("image/png", quality)
