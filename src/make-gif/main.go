@@ -7,8 +7,6 @@ import (
 	"image/color/palette"
 	"image/draw"
 	"image/gif"
-	_ "image/jpeg"
-	_ "image/png" // 如果你的格式是這些，就要import相關包，不然image.Decode會錯誤
 	"log"
 )
 

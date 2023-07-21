@@ -1,0 +1,23 @@
+---
+{
+    "width": 1920,
+    "height": 1080,
+    "outputPath": "./testFiles/result.gif",
+    "loopCount": 2,
+    "default": {
+        "imgPath": "./testFiles",
+        "isCC": false,
+        "delay": 100,
+        "x": 0,
+        "y": 0,
+        "op": 0
+    }
+}
+---
+ImgPath,IsCC,Delay,X,Y,Op
+0.png,,,,,
+cc0.png,1,300,,,
+1.png,,,,,
+cc1.png,1,,,,
+good.png,1,,,,
+
