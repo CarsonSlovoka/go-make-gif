@@ -1,0 +1,44 @@
+{
+  "width": 173,
+  "height": 178,
+  "outputPath": "./testFiles/result.gif",
+  "loopCount": 2,
+  "default": {
+    "imgPath": "./testFiles",
+    "isCC": false,
+    "delay": 50
+  },
+  "datas": [
+    {
+      "imgPath": "index.png",
+      "delay": 0
+    },
+    {
+      "imgPath": "0.png"
+    },
+    {
+      "imgPath": "1.png"
+    },
+    {
+      "note:": "擷取太空狗的區域",
+      "imgPath": "0.png",
+      "delay": 150,
+      "sx": 40,
+      "sy": 40,
+      "w": 73,
+      "h": 78,
+      "dstX": 50,
+      "dstY": 20
+    },
+    {
+      "imgPath": "2.png"
+    },
+    {
+      "imgPath": "3.png"
+    },
+    {
+      "imgPath": "hi.cc.png",
+      "isCC": true
+    }
+  ]
+}
