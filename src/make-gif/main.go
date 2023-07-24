@@ -19,7 +19,7 @@ type config struct {
 func parseConfig() *config {
 	cfg := &config{}
 	flag.StringVar(&cfg.imgDir, "imgDir", ".", "the image source of the directory")
-	flag.IntVar(&cfg.delay, "delay", 100, "millisecond. default: 0.1sec")
+	flag.IntVar(&cfg.delay, "delay", 100, "1uint=0.01/sec. default: 1sec")
 	flag.StringVar(&cfg.outputPath, "outputPath", "result.gif", "output filepath")
 	flag.Parse()
 	return cfg
@@ -43,7 +43,7 @@ func main() {
 		draw.Draw(myPalette, myPalette.Rect, curImg, bound.Min, draw.Src) // 要畫才會真的有內容
 
 		myGif.Image = append(myGif.Image, myPalette)
-		myGif.Delay = append(myGif.Delay, 100) // 每一幀的時間間隔，單位為10ms (這裡設置為100ms)
+		myGif.Delay = append(myGif.Delay, cfg.delay) // 每一幀的時間間隔，其每1單位指的是百分之一秒，也就是0.01, 故設定為100會是1秒
 	}
 
 	// 存檔
