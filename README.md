@@ -45,7 +45,7 @@ go install # 安裝在 GOPATH/bin 之中
 
 ### make-gifex.exe
 
-請項目只需要為入一個json檔案，請參考[.gif.manifest.json](src/make-gifex/.gif.manifest.json)
+請項目只需要餵入一個json檔案，請參考[.gif.manifest.json](src/make-gifex/.gif.manifest.json)
 
 ```json5
 {
