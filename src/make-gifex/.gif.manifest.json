@@ -2,7 +2,7 @@
   "width": 173,
   "height": 178,
   "outputPath": "./testFiles/result.gif",
-  "loopCount": 2,
+  "loopCount": 0,
   "default": {
     "imgPath": "./testFiles",
     "isCC": false,
