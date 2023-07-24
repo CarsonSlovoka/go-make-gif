@@ -95,6 +95,12 @@ go install # 安裝在 GOPATH/bin 之中
 
 > 有關產生cc字幕的圖片，可以考慮使用簡單的html來產生, 可以參考[make-cc.html](tool/make-cc.html)，直接打開敲入想要的字幕就能用生成
 
+
+## demo
+
+[demo.gif](demo/v0.1.0/v0.1.0.gif)
+[參考](demo/v0.1.0/README.md)
+
 ## 疑難排解
 
 ### gif: image block is out of bounds
